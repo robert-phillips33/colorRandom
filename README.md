@@ -7,7 +7,7 @@
 
 We will be building a site that generates color palettes for us. Similar to other sites like coolors, we will present users with various random colors which they can choose to “save” (note: saved palettes will not persist across page refreshes). Users can “lock” a color, which will keep that color when a new palette is generated.
 
-This project will give you and your team an opportunity to write HTML and CSS, and leverage JavaScript to both create your data model and interact with the DOM.
+This project will give our team an opportunity to write HTML and CSS, and leverage JavaScript to both create the data model and interact with the DOM.
 ### Installation Instructions:
 [//]: <> (What steps does a person have to take to get your app cloned down and running?)
 
