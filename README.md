@@ -1,5 +1,7 @@
 # 🎨 [ColorRandom](https://CarissaHluchan.github.io/colorRandom/) 🎨
 
+☝️ Click the link for a working deployment of this repo.
+
 ### Abstract:
 [//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
 
