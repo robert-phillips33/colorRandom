@@ -29,10 +29,11 @@ Created by [Carissa Hluchan](https://github.com/CarissaHluchan), [Marshall Hotal
 ### Learning Goals:
 [//]: <> (What were the learning goals of this project? What tech did you work with?)
 
-- Write semantic HTML and efficient CSS to form a usable UI
-- Write clean, DRY JavaScript and leverage functions, creating and using an effective data model
-- Manipulate the page after it has loaded adding, removing, and updating elements on the DOM
-- Refine our collaboration skills
+- Write semantic HTML and efficient CSS to form a usable UI.
+- Write clean, DRY JavaScript and leverage functions, creating and using an effective data model.
+- Manipulate the page after it has loaded adding, removing, and updating elements on the DOM.
+- Refine our collaboration skills.
+- Project specifications can be found [here](https://frontend.turing.edu/projects/module-1/colorandom.html).
 
 ### Wins + Challenges:
 [//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
