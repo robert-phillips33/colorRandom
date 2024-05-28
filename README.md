@@ -13,7 +13,7 @@ This project will give you and your team an opportunity to write HTML and CSS, a
 
 - Fork this project to your own Github account.
 - Clone the repository to your local machine.
-- `cd` into the project.
+- `cd` into the project folder.
 - Use the `open index.html` command to view the webpage.
 
 ### Preview of App:
