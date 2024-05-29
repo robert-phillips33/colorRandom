@@ -15,9 +15,28 @@ var colors = {
   color4: document.querySelector('#color4'),
 };
 
+var swatchContainer = document.querySelector('container');
+
 //// event listiner's
 newPaletteBtn.addEventListener('click', randomizePaletteColors);
 window.addEventListener('load', randomizePaletteColors);
+swatchContainer.addEventListener('click', lockUnlockColor);
+
+function lockUnlockColor(event) {
+  if (event.target.classList.contains('lock')) {
+    var lockID = event.target.parentNode.parentNode.id;
+    // updates JS palette
+    var targetColorIndex = Number(lockID.slice(-1));
+    var targetColor = palette.colors[targetColorIndex];
+    targetColor.locked = !targetColor.locked;
+    // updates DOM colors
+    var colorDiv = colors[lockID];
+    var images = colorDiv.querySelectorAll('img');
+    for (let i = 0; i < images.length; i += 1) {
+      images[i].classList.toggle('hidden');
+    }
+  }
+}
 
 // palette -> {id: randomInt, colors: []}
 function updateDOMPalette() {
@@ -44,7 +63,7 @@ function randomizePaletteColors() {
     }
   }
 
-  updateDOMPalette()
+  updateDOMPalette();
 }
 // color -> { hexCode: "#123abc", locked: false }
 function createRandomColor() {

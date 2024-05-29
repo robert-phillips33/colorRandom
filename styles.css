@@ -71,7 +71,7 @@ section {
   display: none;
 }
 
-/**--- Lock Icon ---**/
+/**--- Lock Icon 
 
 .lock-container {
   width: 60px;
@@ -145,8 +145,6 @@ section {
   left: 10px;
 }
 
-/**--- Lock Animations ---**/
-
 @keyframes open {
   0%,
   10% {
@@ -196,3 +194,4 @@ section {
     transform: rotate(0);
   }
 }
+--*/
