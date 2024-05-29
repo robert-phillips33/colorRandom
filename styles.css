@@ -13,6 +13,7 @@ h1 {
 
 h3 {
   font-weight: 300;
+  font-size: 2vw;
 }
 
 container {
@@ -21,10 +22,20 @@ container {
 }
 
 .swatch {
-  display: block;
+  display: flex;
   height: 15vw;
   width: 15vw;
-  border: 2px solid black;
+  border: 6px solid black;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.swatch > img {
+  height: 20%;
+  width: auto;
+  margin: 7%;
 }
 
 button {
@@ -53,6 +64,10 @@ span {
 }
 
 section {
+  display: none;
+}
+
+.hidden {
   display: none;
 }
 
