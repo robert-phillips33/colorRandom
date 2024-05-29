@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    font-family: "poppins", sans-serif;
+}
+
+h1 {
+    font-size: 8vw;
+}
+
+container {
+    display: flex;
+    gap: 1vw;
+}
+
+/* container>div {
+    text-align: center;
+} */
+
+.swatch {
+    display: block;
+    height: 15vw;
+    width: 15vw;
+    border: 2px solid black;
+}
+
+button {
+    border-radius: 0px 10px;
+    padding: 2%;
+    width: 30%;
+    background-color: black;
+    color: white;
+}
+
+section {
+    display: none;
+}
