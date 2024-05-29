@@ -1,15 +1,12 @@
 //// global variables
 var hexChars = 'ABCDEF0123456789';
 var savedPalettes = [];
-// <><><><><> only palette, simplified name
-// <><><><><> start w/ empty object when page loads or last palette is saved
 var palette = {};
 //// document.query selector's
 // buttons
 var newPaletteBtn = document.querySelector('#newPalette');
 var savePaletteBtn = document.querySelector('#savePalette');
 // colors
-// <><><><><> updated colors to count like array
 var colors = {
   color0: document.querySelector('#color0'),
   color1: document.querySelector('#color1'),
@@ -23,11 +20,10 @@ newPaletteBtn.addEventListener('click', randomizePaletteColors);
 window.addEventListener('load', randomizePaletteColors);
 
 // palette -> {id: randomInt, colors: []}
-// function randomizeMainPalette() {
 function updateDOMPalette() {
   for (var i = 0; i < 5; i++) {
     var colorDiv = colors[`color${i}`];
-    // <><><><><> box & heading from current color DOM <div>
+
     var box = colorDiv.querySelector('box');
     var heading = colorDiv.querySelector('h3');
 
@@ -38,8 +34,6 @@ function updateDOMPalette() {
   }
 }
 // palette -> {id: randomInt, colors: []}
-// <><><><><> function randomized actual palette object.
-//function createRandomPalette() {
 function randomizePaletteColors() {
   if (!palette.id) palette = { id: Date.now(), colors: [] };
 
