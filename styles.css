@@ -4,20 +4,21 @@ body {
     justify-content: space-around;
     text-align: center;
     font-family: "poppins", sans-serif;
+    background-color: #E7F1F1;
 }
 
 h1 {
-    font-size: 8vw;
+    font-size: 9vw;
+}
+
+h3 {
+    font-weight: 300;
 }
 
 container {
     display: flex;
     gap: 1vw;
 }
-
-/* container>div {
-    text-align: center;
-} */
 
 .swatch {
     display: block;
@@ -27,11 +28,24 @@ container {
 }
 
 button {
-    border-radius: 0px 10px;
+    border-radius: 0px 50px;
     padding: 2%;
-    width: 30%;
+    width: 39%;
     background-color: black;
     color: white;
+    font-family: "poppins", sans-serif;
+    font-size: 3vw;
+    font-weight: 100;
+    border: 0;
+}
+
+.space {
+    height: 10vw
+}
+
+span {
+    display: flex;
+    justify-content: space-around;
 }
 
 section {
