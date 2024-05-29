@@ -1,86 +1,66 @@
 //// global variables
-var hexChars = 'ABCDEF0123456789'
+var hexChars = 'ABCDEF0123456789';
 var savedPalettes = [];
-var mainPalette = {};
-//// document.queery selector's 
+var palette = {};
+//// document.query selector's
 // buttons
-var newPaletteBtn = document.querySelector("#newPalette");
+var newPaletteBtn = document.querySelector('#newPalette');
 var savePaletteBtn = document.querySelector('#savePalette');
 // colors
 var colors = {
-    color1: document.querySelector('#color1'),
-    color2: document.querySelector('#color2'),
-    color3: document.querySelector('#color3'),
-    color4: document.querySelector('#color4'),
-    color5: document.querySelector('#color5'),
-}
-
-
-
-
-
+  color0: document.querySelector('#color0'),
+  color1: document.querySelector('#color1'),
+  color2: document.querySelector('#color2'),
+  color3: document.querySelector('#color3'),
+  color4: document.querySelector('#color4'),
+};
 
 //// event listiner's
-newPaletteBtn.addEventListener("click", randomizeMainPalette)
-window.addEventListener("load", randomizeMainPalette)
+newPaletteBtn.addEventListener('click', randomizePaletteColors);
+window.addEventListener('load', randomizePaletteColors);
 
-//// function's
-function updateDOMColorSwatch(element, hexCode) {
-    element.style.backgroundColor = hexcode
-}
+// palette -> {id: randomInt, colors: []}
+function updateDOMPalette() {
+  for (var i = 0; i < 5; i++) {
+    var colorDiv = colors[`color${i}`];
 
+    var box = colorDiv.querySelector('box');
+    var heading = colorDiv.querySelector('h3');
 
-// {id: randomInt, colors: []}
-function randomizeMainPalette() {
-    // later, we will need to check for locked colors
-    mainPalette = createRandomPalette();
-    console.log('main palette:', mainPalette)
-    for (var i = 0; i < Object.keys(colors).length; i++) {
-        var colorDiv = colors[Object.keys(colors)[i]];
+    var currentHexCode = palette.colors[i].hexCode;
 
-        var box = colorDiv.querySelector('box');
-        console.log('box: ', i, box)
-        var header = colorDiv.querySelector('h3');
-        console.log('h3: ', i, header)
-
-        var currentHexCode = mainPalette.colors[i].hexCode;
-
-        box.style.backgroundColor = currentHexCode;
-        header.innerText = currentHexCode;
-    }
+    box.style.backgroundColor = currentHexCode;
+    heading.innerText = currentHexCode;
+  }
 }
 // palette -> {id: randomInt, colors: []}
-function createRandomPalette() {
-    var colors = [];
+function randomizePaletteColors() {
+  if (!palette.id) palette = { id: Date.now(), colors: [] };
 
-    for (var i = 0; i < 5; i++) {
-        colors.push(createRandomColor());
+  for (var i = 0; i < 5; i++) {
+    // <><><><><> if no color @ index OR color is unlocked....
+    if (!palette.colors[i] || !palette.colors[i].locked) {
+      palette.colors[i] = createRandomColor();
     }
+  }
 
-    return { id: Date.now(), colors: colors }
+  updateDOMPalette()
 }
 // color -> { hexCode: "#123abc", locked: false }
 function createRandomColor() {
-    return { hexCode: generateRandomHexCode(), locked: false }
+  return { hexCode: generateRandomHexCode(), locked: false };
 }
 
 function generateRandomHexCode() {
-    var hexCode = '#';
+  var hexCode = '#';
 
-    for (var i = 0; i < 6; i++) {
-        hexCode += generateRandomHexChar();
-    }
+  for (var i = 0; i < 6; i++) {
+    hexCode += generateRandomHexChar();
+  }
 
-    return hexCode;
+  return hexCode;
 }
 
 function generateRandomHexChar() {
-    return hexChars[Math.floor(Math.random() * hexChars.length)]
+  return hexChars[Math.floor(Math.random() * hexChars.length)];
 }
-
-
-
-
-
-
-
