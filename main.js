@@ -6,6 +6,7 @@ var palette = {};
 // buttons
 var newPaletteBtn = document.querySelector('#newPalette');
 var savePaletteBtn = document.querySelector('#savePalette');
+var savedPaletteSection = document.querySelector('#savedPalettes');
 // colors
 var colors = {
   color0: document.querySelector('#color0'),
@@ -23,15 +24,69 @@ window.addEventListener('load', randomizePaletteColors);
 swatchContainer.addEventListener('click', lockUnlockColor);
 savePaletteBtn.addEventListener('click', savePalette);
 
+
+
 function savePalette (event) {
   savedPalettes.push(palette);
   palette = {};
   randomizePaletteColors();
+  updateDomSavedPalettes();
 }
 
-function updateDomSavedPalettes (event) {}
+function updateDomSavedPalettes() {
+  savedPaletteSection.innerHTML = '<h2>Saved Palettes</h2>';
+  for (let i = 0; i < savedPalettes.length; i++) {
+    var miniPaletteGroup = makeMiniPaletteGroup(savedPalettes[i]);
+    savedPaletteSection.appendChild(miniPaletteGroup);
+  }
+
+}
 
 
+
+
+function makeMiniPaletteGroup(palette) {
+  var miniPaletteGroup = document.createElement('div');
+  miniPaletteGroup.classList.add('mini-palette-group');
+
+  var miniPalette = document.createElement('div');
+  miniPalette.classList.add('mini-palette');
+  miniPaletteGroup.appendChild(miniPalette);
+  miniPaletteGroup.appendChild(makeDeleteButton(palette.id));
+
+  for (let i = 0; i < 5; i++) {
+    var miniSwatch = makeMiniSwatch(palette.colors[i].hexCode);
+    miniPalette.appendChild(miniSwatch);
+  }
+  return miniPaletteGroup;
+
+
+}
+
+
+
+function makeMiniSwatch(hexCode) {
+  var miniSwatch = document.createElement('box');
+  miniSwatch.classList.add('mini-swatch');
+  miniSwatch.style.backgroundColor = hexCode;
+
+  return miniSwatch;
+}
+
+
+
+
+
+
+
+function makeDeleteButton(id) {
+  var deleteButton = document.createElement('img');
+  deleteButton.classList.add('delete-button');
+  deleteButton.src = './assets/delete.png';
+  deleteButton.alt = 'delete button';
+  deleteButton.id = 'id';
+  return deleteButton;
+}
 
 
 

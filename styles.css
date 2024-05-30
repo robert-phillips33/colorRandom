@@ -3,7 +3,7 @@ body {
   text-align: center;
   font-family: 'poppins', sans-serif;
   background-color: #e7f1f1;
-  height: 100vh
+  height: 100vh;
   border: 2px solid red;
   margin: auto;
 }
@@ -79,6 +79,38 @@ section {
   align-items: center;
   width: 100%;
 }
+
+.mini-palette-group {
+  display: flex;
+  gap: 1.25vw;
+  align-items: center;
+
+}
+
+
+
+
+.mini-palette {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: .25vw;
+
+}
+
+
+.mini-swatch {
+  height: 4vh;
+  width: 4vh;
+  border: 2px black solid;
+
+}
+
+.delete-button {
+  height: 4vh;
+}
+
+
 
 .hidden {
   display: none;
