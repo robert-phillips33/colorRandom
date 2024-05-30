@@ -21,6 +21,21 @@ var swatchContainer = document.querySelector('container');
 newPaletteBtn.addEventListener('click', randomizePaletteColors);
 window.addEventListener('load', randomizePaletteColors);
 swatchContainer.addEventListener('click', lockUnlockColor);
+savePaletteBtn.addEventListener('click', savePalette);
+
+function savePalette (event) {
+  savedPalettes.push(palette);
+  palette = {};
+  randomizePaletteColors();
+}
+
+function updateDomSavedPalettes (event) {}
+
+
+
+
+
+
 
 function lockUnlockColor(event) {
   if (event.target.classList.contains('lock')) {

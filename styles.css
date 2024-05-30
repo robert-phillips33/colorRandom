@@ -5,6 +5,7 @@ body {
   text-align: center;
   font-family: 'poppins', sans-serif;
   background-color: #e7f1f1;
+  height: 100vh
 }
 
 h1 {
@@ -64,7 +65,8 @@ span {
 }
 
 section {
-  display: none;
+  border-left: 2px solid black;
+  margin: 3vh;
 }
 
 .hidden {
