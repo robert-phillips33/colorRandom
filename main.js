@@ -23,6 +23,7 @@ newPaletteBtn.addEventListener('click', randomizePaletteColors);
 window.addEventListener('load', randomizePaletteColors);
 swatchContainer.addEventListener('click', lockUnlockColor);
 savePaletteBtn.addEventListener('click', savePalette);
+savedPaletteSection.addEventListener('click', deleteSavedPalette);
 
 
 
@@ -34,12 +35,17 @@ function savePalette (event) {
 }
 
 function updateDomSavedPalettes() {
-  savedPaletteSection.innerHTML = '<h2>Saved Palettes</h2>';
+  var savedPaletteHTML = '<h2>Saved Palettes</h2>'
+
+  if (!savedPalettes.length) {
+    savedPaletteHTML += '<p>Saved Palettes will show here!</p>';
+  }
+
+  savedPaletteSection.innerHTML = savedPaletteHTML;
   for (let i = 0; i < savedPalettes.length; i++) {
     var miniPaletteGroup = makeMiniPaletteGroup(savedPalettes[i]);
     savedPaletteSection.appendChild(miniPaletteGroup);
   }
-
 }
 
 
@@ -59,8 +65,6 @@ function makeMiniPaletteGroup(palette) {
     miniPalette.appendChild(miniSwatch);
   }
   return miniPaletteGroup;
-
-
 }
 
 
@@ -74,7 +78,16 @@ function makeMiniSwatch(hexCode) {
 }
 
 
-
+function deleteSavedPalette (event){
+  if(event.target.classList.contains('delete-button')){
+    for (var i = 0; i < savedPalettes.length; i ++){
+      if (savedPalettes[i].id === Number(event.target.id)){
+        savedPalettes.splice(i,1)
+      }
+    }
+    updateDomSavedPalettes()  
+  }
+}
 
 
 
@@ -84,7 +97,7 @@ function makeDeleteButton(id) {
   deleteButton.classList.add('delete-button');
   deleteButton.src = './assets/delete.png';
   deleteButton.alt = 'delete button';
-  deleteButton.id = 'id';
+  deleteButton.id = id;
   return deleteButton;
 }
 
