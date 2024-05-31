@@ -5,9 +5,9 @@
 ### Abstract:
 [//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
 
-We will be building a site that generates color palettes for us. Similar to other sites like coolors, we will present users with various random colors which they can choose to “save” (note: saved palettes will not persist across page refreshes). Users can “lock” a color, which will keep that color when a new palette is generated.
+Our team built a site that generates color palettes for its users. Similar to other sites like [coolors](https://coolors.co/generate), the site presents users with various random colors which they can choose to “save” (note: saved palettes will not persist across page refreshes). Users can “lock” a color, which will keep that color when a new palette is generated.
 
-This project will give our team an opportunity to write HTML and CSS, and leverage JavaScript to both create the data model and interact with the DOM.
+This project gave our team an opportunity to write HTML and CSS, and leverage JavaScript to both create the data model and interact with the DOM.
 ### Installation Instructions:
 [//]: <> (What steps does a person have to take to get your app cloned down and running?)
 
@@ -32,7 +32,7 @@ Created by [Carissa Hluchan](https://github.com/CarissaHluchan), [Marshall Hotal
 - Write semantic HTML and efficient CSS to form a usable UI.
 - Write clean, DRY JavaScript and leverage functions, creating and using an effective data model.
 - Manipulate the page after it has loaded adding, removing, and updating elements on the DOM.
-- Refine our collaboration skills.
+- Refine our group collaboration skills.
 - Project specifications can be found [here](https://frontend.turing.edu/projects/module-1/colorandom.html).
 
 ### Wins + Challenges:
