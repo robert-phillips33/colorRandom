@@ -75,7 +75,7 @@ function makeDeleteButton(id) {
   return deleteButton;
 }
 //- click handler functions -//
-function savePalette () {
+function savePalette() {
   savedPalettes.push(featurePalette);
   resetFeaturePalette();
   randomizePaletteColors();
@@ -84,7 +84,7 @@ function savePalette () {
 
 function deleteSavedPalette(event) {
   if (event.target.classList.contains('delete-button')) {
-    for (var i = 0; i < savedPalettes.length; i ++){
+    for (var i = 0; i < savedPalettes.length; i++) {
       if (savedPalettes[i].id === Number(event.target.id)) {
         savedPalettes.splice(i,1);
       }
@@ -96,7 +96,7 @@ function deleteSavedPalette(event) {
 
 function updateDOMLocks(colorDiv) {
   var images = colorDiv.querySelectorAll('img');
-  for (let i = 0; i < images.length; i += 1) {
+  for (let i = 0; i < images.length; i++) {
     images[i].classList.toggle('hidden');
   }
 }
