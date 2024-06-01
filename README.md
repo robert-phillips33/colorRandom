@@ -49,4 +49,4 @@ Created by [Carissa Hluchan](https://github.com/CarissaHluchan), [Marshall Hotal
 - We worked with CSS @media selectors to make this app responsive to mobile devices.
 - We experimented with new CSS @keyframe animations to create a more interactive user experience.
 - We used our knowledge of the event propagation cycle to dynamically capture user events from parent containers.
-  - This allowed us to attach the event listeners to DOM nodes that can be added and removed by user interactions.
+  - This allowed us to capture events for DOM nodes that will be added and removed by user interactions.
