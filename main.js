@@ -1,13 +1,12 @@
-//// global variables
+//// <> GLOBAL VARIABLES <> ////
 var hexChars = 'ABCDEF0123456789';
 var savedPalettes = [];
-var palette = {};
-//// document.query selector's
-// buttons
+var featurePalette = { id: Date.now(), colors: [] };
+//// <> DOM NODES <> ////
+//- buttons -//
 var newPaletteBtn = document.querySelector('#newPalette');
 var savePaletteBtn = document.querySelector('#savePalette');
-var savedPaletteSection = document.querySelector('#savedPalettes');
-// colors
+//- colors -//
 var colors = {
   color0: document.querySelector('#color0'),
   color1: document.querySelector('#color1'),
@@ -15,41 +14,32 @@ var colors = {
   color3: document.querySelector('#color3'),
   color4: document.querySelector('#color4'),
 };
-
+//- containers -//
 var swatchContainer = document.querySelector('container');
-
-//// event listiner's
-newPaletteBtn.addEventListener('click', randomizePaletteColors);
+var savedPaletteSection = document.querySelector('#savedPalettes');
+//// <> EVENT LISTENERS <> ////
+//- load -//
 window.addEventListener('load', randomizePaletteColors);
+//- click -//
+newPaletteBtn.addEventListener('click', randomizePaletteColors);
 swatchContainer.addEventListener('click', lockUnlockColor);
 savePaletteBtn.addEventListener('click', savePalette);
 savedPaletteSection.addEventListener('click', deleteSavedPalette);
-
-
-
-function savePalette (event) {
-  savedPalettes.push(palette);
-  palette = {};
-  randomizePaletteColors();
-  updateDomSavedPalettes();
-}
-
+//// <> FUNCTIONS <> ////
+//- saved palette functions -//
 function updateDomSavedPalettes() {
-  var savedPaletteHTML = '<h2>Saved Palettes</h2>'
+  var savedPaletteHTML = '<h2>Saved Palettes</h2>';
 
   if (!savedPalettes.length) {
     savedPaletteHTML += '<p>Saved Palettes will show here!</p>';
   }
 
   savedPaletteSection.innerHTML = savedPaletteHTML;
-  for (let i = 0; i < savedPalettes.length; i++) {
+  for (var i = 0; i < savedPalettes.length; i++) {
     var miniPaletteGroup = makeMiniPaletteGroup(savedPalettes[i]);
     savedPaletteSection.appendChild(miniPaletteGroup);
   }
 }
-
-
-
 
 function makeMiniPaletteGroup(palette) {
   var miniPaletteGroup = document.createElement('div');
@@ -60,14 +50,13 @@ function makeMiniPaletteGroup(palette) {
   miniPaletteGroup.appendChild(miniPalette);
   miniPaletteGroup.appendChild(makeDeleteButton(palette.id));
 
-  for (let i = 0; i < 5; i++) {
+  for (var i = 0; i < 5; i++) {
     var miniSwatch = makeMiniSwatch(palette.colors[i].hexCode);
     miniPalette.appendChild(miniSwatch);
   }
+
   return miniPaletteGroup;
 }
-
-
 
 function makeMiniSwatch(hexCode) {
   var miniSwatch = document.createElement('box');
@@ -77,21 +66,6 @@ function makeMiniSwatch(hexCode) {
   return miniSwatch;
 }
 
-
-function deleteSavedPalette (event){
-  if(event.target.classList.contains('delete-button')){
-    for (var i = 0; i < savedPalettes.length; i ++){
-      if (savedPalettes[i].id === Number(event.target.id)){
-        savedPalettes.splice(i,1)
-      }
-    }
-    updateDomSavedPalettes()  
-  }
-}
-
-
-
-
 function makeDeleteButton(id) {
   var deleteButton = document.createElement('img');
   deleteButton.classList.add('delete-button');
@@ -100,28 +74,43 @@ function makeDeleteButton(id) {
   deleteButton.id = id;
   return deleteButton;
 }
+//- click handler functions -//
+function savePalette () {
+  savedPalettes.push(featurePalette);
+  resetFeaturePalette();
+  randomizePaletteColors();
+  updateDomSavedPalettes();
+}
 
+function deleteSavedPalette(event) {
+  if (event.target.classList.contains('delete-button')) {
+    for (var i = 0; i < savedPalettes.length; i ++){
+      if (savedPalettes[i].id === Number(event.target.id)) {
+        savedPalettes.splice(i,1);
+      }
+    }
 
+    updateDomSavedPalettes();
+  }
+}
 
-
+function updateDOMLocks(colorDiv) {
+  var images = colorDiv.querySelectorAll('img');
+  for (let i = 0; i < images.length; i += 1) {
+    images[i].classList.toggle('hidden');
+  }
+}
 
 function lockUnlockColor(event) {
   if (event.target.classList.contains('lock')) {
     var lockID = event.target.parentNode.parentNode.id;
-    // updates JS palette
     var targetColorIndex = Number(lockID.slice(-1));
-    var targetColor = palette.colors[targetColorIndex];
+    var targetColor = featurePalette.colors[targetColorIndex];
     targetColor.locked = !targetColor.locked;
-    // updates DOM colors
-    var colorDiv = colors[lockID];
-    var images = colorDiv.querySelectorAll('img');
-    for (let i = 0; i < images.length; i += 1) {
-      images[i].classList.toggle('hidden');
-    }
+    updateDOMLocks(colors[lockID]);
   }
 }
-
-// palette -> {id: randomInt, colors: []}
+//- featurePalette functions -//
 function updateDOMPalette() {
   for (var i = 0; i < 5; i++) {
     var colorDiv = colors[`color${i}`];
@@ -129,26 +118,28 @@ function updateDOMPalette() {
     var box = colorDiv.querySelector('box');
     var heading = colorDiv.querySelector('h3');
 
-    var currentHexCode = palette.colors[i].hexCode;
+    var currentHexCode = featurePalette.colors[i].hexCode;
 
     box.style.backgroundColor = currentHexCode;
     heading.innerText = currentHexCode;
   }
 }
-// palette -> {id: randomInt, colors: []}
-function randomizePaletteColors() {
-  if (!palette.id) palette = { id: Date.now(), colors: [] };
 
+function resetFeaturePalette() {
+  var paletteColors = [...featurePalette.colors];
+  featurePalette = { id: Date.now(), colors: paletteColors };
+}
+
+function randomizePaletteColors() {
   for (var i = 0; i < 5; i++) {
-    // <><><><><> if no color @ index OR color is unlocked....
-    if (!palette.colors[i] || !palette.colors[i].locked) {
-      palette.colors[i] = createRandomColor();
+    if (!featurePalette.colors[i] || !featurePalette.colors[i].locked) {
+      featurePalette.colors[i] = createRandomColor();
     }
   }
 
   updateDOMPalette();
 }
-// color -> { hexCode: "#123abc", locked: false }
+
 function createRandomColor() {
   return { hexCode: generateRandomHexCode(), locked: false };
 }
