@@ -6,7 +6,7 @@ var featurePalette = { id: Date.now(), colors: [] };
 //- buttons -//
 var newPaletteBtn = document.querySelector('#newPalette');
 var savePaletteBtn = document.querySelector('#savePalette');
-//- colors -//
+//- feature palette color divs -//
 var colors = {
   color0: document.querySelector('#color0'),
   color1: document.querySelector('#color1'),
