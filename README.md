@@ -19,8 +19,17 @@ This project gave our team an opportunity to write HTML and CSS, and leverage Ja
 ### Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
 
+##### Desktop View
+
+![desktopGif](./assets/coloRandom.gif)
+
+##### Mobile View
+
+![mobileGif](./assets/colorandomMobile.gif)
+
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
+Our team of 4 Front-End Developers completed this project while in the 4th week of an intensive Software Development Bootcamp. It took us 4 days of group work and collaboration to complete.
 
 ### Contributors:
 [//]: <> (Who worked on this application? Link to their GitHubs.)
@@ -37,3 +46,7 @@ Created by [Carissa Hluchan](https://github.com/CarissaHluchan), [Marshall Hotal
 
 ### Wins + Challenges:
 [//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
+- We worked with CSS @media selectors to make this app responsive to mobile devices.
+- We experimented with new CSS @keyframe animations to create a more interactive user experience.
+- We used our knowledge of the event propagation cycle to dynamically capture user events from parent containers.
+  - This allowed us to attach the event listeners to DOM nodes that can be added and removed by user interactions.
