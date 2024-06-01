@@ -29,7 +29,7 @@ This project gave our team an opportunity to write HTML and CSS, and leverage Ja
 
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
-Our team of 4 Front-End Developers completed this project while in the 4th week of an intensive Software Development Bootcamp. It took us 4 days of group work and collaboration to complete.
+Our team of 4 Front-End Developers completed this project while in the 4th week of an intensive Software Development Bootcamp. Before touching any code, as a group we looked over the provided site comp and [brainstormed](./assets/coloRandomBrainStorm.png) how to store our data using JS variables. It took us 4 days of group work and collaboration to complete. We tracked our team's progress using a [github project board](./assets/coloRandomProjectBoard.png).
 
 ### Contributors:
 [//]: <> (Who worked on this application? Link to their GitHubs.)
