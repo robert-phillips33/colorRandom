@@ -1,4 +1,4 @@
-# 🎨 [ColorRandom](https://CarissaHluchan.github.io/colorRandom/) 🎨
+# 🎨 [ColorRandom](https://seth-way.github.io/colorRandom/) 🎨
 
 ☝️ Click the link for a working deployment of this repo.
 
