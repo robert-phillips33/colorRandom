@@ -1,6 +1,4 @@
-# 🎨 [ColorRandom](https://seth-way.github.io/colorRandom/) 🎨
-
-☝️ Click the link for a working deployment of this repo.
+# [Check out colorRandom here!](https://robert-phillips33.github.io/colorRandom/)
 
 ### Abstract:
 [//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
